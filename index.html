@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Plate</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .plate {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 5px solid #b8b8b8;
+            position: relative;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+        }
+
+        .food-item {
+            position: absolute;
+            display: block;
+            background-color: #ffeb3b;
+            border-radius: 50%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .burger {
+            width: 100px;
+            height: 60px;
+            top: 120px;
+            left: 100px;
+            background-color: #8d6e63;
+        }
+
+        .burger::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            width: 80px;
+            height: 10px;
+            background-color: #d32f2f;
+            border-radius: 5px;
+        }
+
+        .burger::after {
+            content: '';
+            position: absolute;
+            top: 45px;
+            left: 10px;
+            width: 80px;
+            height: 10px;
+            background-color: #d32f2f;
+            border-radius: 5px;
+        }
+
+        .fries {
+            width: 30px;
+            height: 50px;
+            top: 170px;
+            left: 60px;
+            background-color: #f57c00;
+            border-radius: 3px;
+        }
+
+        .fries:nth-child(2) {
+            left: 90px;
+        }
+
+        .fries:nth-child(3) {
+            left: 120px;
+        }
+
+        .drink {
+            width: 40px;
+            height: 70px;
+            top: 90px;
+            left: 230px;
+            background-color: #1976d2;
+            border-radius: 8px;
+        }
+
+        .drink::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            width: 20px;
+            height: 10px;
+            background-color: #fafafa;
+            border-radius: 5px;
+        }
+
+        /* Animation for food items */
+        .food-item {
+            animation: moveFood 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes moveFood {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(10px, -10px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Food Plate</h1>
+    <div class="plate">
+        <div class="food-item burger"></div>
+        <div class="food-item fries"></div>
+        <div class="food-item fries"></div>
+        <div class="food-item fries"></div>
+        <div class="food-item drink"></div>
+    </div>
+
+    <script>
+        // JavaScript to add some interactivity (optional)
+        const foodItems = document.querySelectorAll('.food-item');
+
+        foodItems.forEach(item => {
+            item.addEventListener('click', () => {
+                alert("You clicked on " + item.className.split(' ')[1]);
+            });
+        });
+    </script>
+
+</body>
+</html>
